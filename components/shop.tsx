@@ -54,16 +54,16 @@ export function Shop({
     setBusy(true);
     const form = new FormData();
     for (const [k, v] of Object.entries({ photo, kind, productId: product.id, shade: shade?.hex, fit })) if (v) form.append(k, v);
-    const job = post<{ src: string }>("/api/look", form);
+    const job = post<{ key: string; src: string }>("/api/look", form);
     toast.promise(job, {
       loading: `Putting ${product.name} on you…`,
       success: "Ready",
       error: (e) => e.message,
     });
     try {
-      const { src } = await job;
+      const { key, src } = await job;
       const why = shade ? `${shade.name}: ${shade.why.join(", ")}` : wig ? "In its own colour" : "For wig-off days";
-      setLook({ key: src, kind, product, src, why, shade: shade?.hex });
+      setLook({ key, kind, product, src, why, shade: shade?.hex });
     } finally {
       setBusy(false);
     }

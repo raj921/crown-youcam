@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { fileTypeFromBuffer } from "file-type";
 import path from "node:path";
 import { CATALOG, SHADES, type Fit } from "@/lib/catalog";
 import { YouCamError, cached, fail, imageType, keyOf, readImage, run } from "@/lib/youcam";
@@ -36,7 +37,11 @@ export async function POST(req: Request) {
     if (!(photo instanceof File)) throw new YouCamError("bad_image");
     const selfie = Buffer.from(await photo.arrayBuffer());
     await imageType(selfie);
-    return Response.json({ src: `/api/img/${await look(selfie, keyOf(selfie), kind as Kind, productId!, shade, fit as Fit | undefined)}` });
+    const key = await look(selfie, keyOf(selfie), kind as Kind, productId!, shade, fit as Fit | undefined);
+    // The image goes back in the response: on Vercel another route's instance can't read this one's /tmp.
+    const img = await readImage(key);
+    const type = (await fileTypeFromBuffer(img))?.mime ?? "image/jpeg";
+    return Response.json({ key, src: `data:${type};base64,${img.toString("base64")}` });
   } catch (e) {
     return fail(e);
   }

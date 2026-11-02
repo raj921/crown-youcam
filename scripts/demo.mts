@@ -23,7 +23,7 @@ const { colours, fit = "f" } = await post("/api/selfie", withPhoto({}));
 console.log("selfie", fit, colours);
 
 const mine = (kind: keyof typeof CATALOG) => CATALOG[kind].filter((p) => !p.for || p.for === (fit ?? "f"));
-for (const p of mine("wig")) console.log("wig", p.name, (await post("/api/look", withPhoto({ kind: "wig", productId: p.id }))).src);
+for (const p of mine("wig")) console.log("wig", p.name, (await post("/api/look", withPhoto({ kind: "wig", productId: p.id }))).key);
 const shaded = mine("wig").slice(1, 3); // two wigs shown with every recommended shade in the demo
-for (const p of shaded) for (const s of pickShades(colours)) console.log("shade", p.name, s.name, (await post("/api/look", withPhoto({ kind: "wig", productId: p.id, shade: s.hex }))).src);
-for (const p of mine("cover")) console.log("cover", p.name, (await post("/api/look", withPhoto({ kind: "cover", productId: p.id, fit: fit ?? "f" }))).src);
+for (const p of shaded) for (const s of pickShades(colours)) console.log("shade", p.name, s.name, (await post("/api/look", withPhoto({ kind: "wig", productId: p.id, shade: s.hex }))).key);
+for (const p of mine("cover")) console.log("cover", p.name, (await post("/api/look", withPhoto({ kind: "cover", productId: p.id, fit: fit ?? "f" }))).key);

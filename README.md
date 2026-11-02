@@ -2,7 +2,7 @@
 
 **See the wig on you before you buy.** Crown lets someone starting chemotherapy try wigs, headscarves and caps on their own face, from one selfie, before spending money on something they usually can't return.
 
-- Live app: LIVE_URL
+- Live app: https://crown-youcam.vercel.app
 - Demo video (2:24): https://youtu.be/XwVJW7QMd6s
 - Built for the YouCam API Skin AI & eCommerce VTO Hackathon, eCommerce VTO track
 
@@ -61,7 +61,7 @@ Regenerate the demo results (dev server running): `node --import tsx scripts/dem
 
 ## Stack
 
-Next.js 15 (App Router) with three API routes, React 19, Tailwind v4, shadcn/ui (Base UI), Spectrum UI (Drop Files, empty state, Share Button), react-compare-slider, culori, file-type, sonner, Iconoir. The dark theme follows the Interfere design system. The demo video was made with HyperFrames (`video/`).
+Next.js 15 (App Router) with two API routes (selfie, try-on), React 19, Tailwind v4, shadcn/ui (Base UI), Spectrum UI (Drop Files, empty state, Share Button), react-compare-slider, culori, file-type, sonner, Iconoir. The dark theme follows the Interfere design system. The demo video was made with HyperFrames (`video/`).
 
 ## About the demo persona
 

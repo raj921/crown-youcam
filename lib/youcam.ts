@@ -102,7 +102,6 @@ export const keyOf = (...parts: (string | Buffer)[]) => {
   for (const p of parts) h.update(p).update("|");
   return h.digest("hex").slice(0, 32);
 };
-export const isKey = (k: unknown): k is string => typeof k === "string" && /^[a-f0-9]{32}$/.test(k);
 export const readImage = (key: string) => readCache(`${key}.img`);
 
 /** One JSON error shape for every route; YouCam codes become plain words. */

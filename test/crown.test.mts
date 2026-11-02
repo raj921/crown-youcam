@@ -107,3 +107,14 @@ test("look route: a valid request with a non-image 'photo' is a 400 before any Y
   assert.equal(res.status, 400);
   assert.equal(calls.length, 0);
 });
+
+test("look route: returns the image itself, so it works when serverless instances share no disk", async () => {
+  await fs.mkdir(yc.CACHE_DIR, { recursive: true });
+  await fs.writeFile(path.join(yc.CACHE_DIR, `${yc.keyOf(yc.keyOf(PNG), "wig", "w1", "")}.img`), PNG);
+  const calls = stubFetch();
+  const res = await lookPOST(lookReq({ kind: "wig", productId: "w1" }));
+  const { src } = await res.json();
+  assert.equal(res.status, 200);
+  assert.ok(src.startsWith("data:image/png;base64,"), src.slice(0, 40));
+  assert.equal(calls.length, 0);
+});
