@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/film.css" />
+    <script src="assets/film.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #cdd0ce; }
+      #root { width: 100%; height: 100%; position: relative; }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-m0hz" id="root" data-composition-id="main" data-start="0" data-duration="144" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-nkmu" id="hook" data-composition-id="hook" data-composition-src="compositions/hook.html" data-start="0" data-duration="20" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-vk4b" id="reveal" data-composition-id="reveal" data-composition-src="compositions/reveal.html" data-start="20" data-duration="14" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-hxx4" id="colours" data-composition-id="colours" data-composition-src="compositions/colours.html" data-start="34" data-duration="16" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-68ic" id="wigs" data-composition-id="wigs" data-composition-src="compositions/wigs.html" data-start="50" data-duration="22" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-6g1k" id="payoff" data-composition-id="payoff" data-composition-src="compositions/payoff.html" data-start="72" data-duration="18" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-uc8d" id="off" data-composition-id="off" data-composition-src="compositions/off.html" data-start="90" data-duration="24" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-uwzt" id="how" data-composition-id="how" data-composition-src="compositions/how.html" data-start="114" data-duration="20" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-h725" id="end" data-composition-id="end" data-composition-src="compositions/end.html" data-start="134" data-duration="10" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+
+      <!-- Voiceover: Kokoro af_heart on device (VOICEOVER.md), loudness-normalised to -16 LUFS. -->
+      <audio id="vo-hook" class="clip" src="assets/voice/vo-hook.wav" data-start="0.8" data-duration="13.63" data-track-index="6" data-volume="1"></audio>
+      <audio id="vo-reveal" class="clip" src="assets/voice/vo-reveal.wav" data-start="21.4" data-duration="5.76" data-track-index="6" data-volume="1"></audio>
+      <audio id="vo-colours" class="clip" src="assets/voice/vo-colours.wav" data-start="34.8" data-duration="10.50" data-track-index="6" data-volume="1"></audio>
+      <audio id="vo-wigs" class="clip" src="assets/voice/vo-wigs.wav" data-start="52.8" data-duration="10.79" data-track-index="6" data-volume="1"></audio>
+      <audio id="vo-payoff" class="clip" src="assets/voice/vo-payoff.wav" data-start="74.0" data-duration="5.74" data-track-index="6" data-volume="1"></audio>
+      <audio id="vo-off" class="clip" src="assets/voice/vo-off.wav" data-start="91.4" data-duration="12.91" data-track-index="6" data-volume="1"></audio>
+      <audio id="vo-how" class="clip" src="assets/voice/vo-how.wav" data-start="118.4" data-duration="14.27" data-track-index="6" data-volume="1"></audio>
+      <audio id="vo-end" class="clip" src="assets/voice/vo-end.wav" data-start="136.6" data-duration="2.20" data-track-index="6" data-volume="1"></audio>
+      <!-- Effects (no music source on this machine), each on a visible action, under the voice. -->
+      <audio data-hf-id="hf-oae3" id="sfx-key-1" class="clip" src="assets/sfx/key-press.mp3" data-start="0.6" data-duration="0.4" data-track-index="2" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-8hhz" id="sfx-key-2" class="clip" src="assets/sfx/key-press.mp3" data-start="5.0" data-duration="0.4" data-track-index="2" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-69qs" id="sfx-key-3" class="clip" src="assets/sfx/key-press.mp3" data-start="9.4" data-duration="0.4" data-track-index="2" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-rnwo" id="sfx-key-4" class="clip" src="assets/sfx/key-press.mp3" data-start="13.4" data-duration="0.4" data-track-index="2" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-5btg" id="sfx-key-5" class="clip" src="assets/sfx/key-press.mp3" data-start="16.4" data-duration="0.4" data-track-index="2" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-0khg" id="sfx-carry" class="clip" src="assets/sfx/whoosh.mp3" data-start="20" data-duration="0.57" data-track-index="3" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-ls6u" id="sfx-tap-1" class="clip" src="assets/sfx/click-soft.mp3" data-start="27.1" data-duration="0.37" data-track-index="4" data-volume="0.8"></audio>
+      <audio data-hf-id="hf-kj1j" id="sfx-move-1" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="34" data-duration="0.6" data-track-index="3" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-h8ae" id="sfx-move-2" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="50" data-duration="0.6" data-track-index="3" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-clbd" id="sfx-tap-2" class="clip" src="assets/sfx/click.mp3" data-start="53.6" data-duration="0.37" data-track-index="4" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-qdaw" id="sfx-tap-3" class="clip" src="assets/sfx/click-soft.mp3" data-start="60" data-duration="0.37" data-track-index="4" data-volume="0.8"></audio>
+      <audio data-hf-id="hf-856i" id="sfx-riser" class="clip" src="assets/sfx/riser.mp3" data-start="70.8" data-duration="2.2" data-track-index="3" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-h0yh" id="sfx-impact" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="73" data-duration="1.5" data-track-index="5" data-volume="0.8"></audio>
+      <audio data-hf-id="hf-2wbi" id="sfx-move-3" class="clip" src="assets/sfx/whoosh.mp3" data-start="90" data-duration="0.57" data-track-index="3" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-wnip" id="sfx-tap-4" class="clip" src="assets/sfx/click.mp3" data-start="92.5" data-duration="0.37" data-track-index="4" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-0it6" id="sfx-tap-5" class="clip" src="assets/sfx/click-soft.mp3" data-start="99" data-duration="0.37" data-track-index="4" data-volume="0.8"></audio>
+      <audio data-hf-id="hf-trj7" id="sfx-pop" class="clip" src="assets/sfx/pop.mp3" data-start="100.4" data-duration="0.5" data-track-index="5" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-0v8e" id="sfx-tap-6" class="clip" src="assets/sfx/click.mp3" data-start="106.2" data-duration="0.37" data-track-index="4" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-ay7d" id="sfx-move-4" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="114" data-duration="0.6" data-track-index="3" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-4lg1" id="sfx-tap-7" class="clip" src="assets/sfx/click.mp3" data-start="136" data-duration="0.37" data-track-index="4" data-volume="0.8"></audio>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

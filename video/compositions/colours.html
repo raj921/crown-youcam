@@ -1,0 +1,42 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #colours-phone { left: 1180px; }
+    /* Punch-ins: the same screenshot at 1.8x of its phone size (420/390 * 1.8 = 1.9385 per css px). */
+    #root .panel img { width: 756px; }
+    #colours-p1 { left: 860px; top: 300px; width: 694px; height: 246px; opacity: 0; }
+    #colours-p1 img { left: -31px; top: -413px; }
+    #colours-p2 { left: 860px; top: 200px; width: 694px; height: 500px; opacity: 0; }
+    #colours-p2 img { left: -31px; top: -706px; }
+    #colours-p3 { left: 860px; top: 380px; width: 694px; height: 194px; opacity: 0; }
+    #colours-p3 img { left: -31px; top: -1264px; }
+    #colours-c1 { left: 860px; top: 590px; width: 900px; }
+    #colours-c2 { left: 860px; top: 740px; width: 900px; }
+    #colours-c3 { left: 860px; top: 610px; width: 900px; }
+  </style>
+  <div data-hf-id="hf-e9p0" id="root" data-composition-id="colours" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ygft" class="ground"></div>
+    <div data-hf-id="hf-sqtq" id="colours-phone" class="phone"><div data-hf-id="hf-cdmk" class="screen"><img data-hf-id="hf-uxef" src="assets/screens/02-colours.png" alt="Your colours screen" /></div></div>
+    <div data-hf-id="hf-vno9" id="colours-p1" class="panel"><img data-hf-id="hf-mg9x" src="assets/screens/02-colours.png" alt="Skin, brows, eyes and lip swatches" /></div>
+    <div data-hf-id="hf-zlsa" id="colours-p2" class="panel"><img data-hf-id="hf-m1yz" src="assets/screens/02-colours.png" alt="Three recommended wig shades" /></div>
+    <div data-hf-id="hf-5ri3" id="colours-p3" class="panel"><img data-hf-id="hf-okef" src="assets/screens/02-colours.png" alt="Style set picked from the photo" /></div>
+    <div data-hf-id="hf-xmje" id="colours-c1" class="cap" data-hold>YouCam reads her skin, brows, eyes and lips.</div>
+    <div data-hf-id="hf-7c50" id="colours-c2" class="cap" data-hold>Three wig shades, picked to <span data-hf-id="hf-xbt8" class="blue">match her brows.</span></div>
+    <div data-hf-id="hf-oojb" id="colours-c3" class="cap" data-hold>Feminine or masculine styles, detected from her photo.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#colours-phone", { x: 0 }, { x: -950, duration: 0.6, ease: "power2.inOut" }, 0);
+    const panel = (sel, at, out) => {
+      tl.fromTo(sel, { opacity: 0, scale: 0.96, filter: "blur(8px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, at);
+      tl.to(sel, { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, out);
+    };
+    panel("#colours-p1", 0.8, 6.2);
+    film.words(tl, "#colours-c1", 1.2, 6.2);
+    panel("#colours-p2", 6.6, 11.2);
+    film.words(tl, "#colours-c2", 7.0, 11.2);
+    panel("#colours-p3", 11.6, 15.6);
+    film.words(tl, "#colours-c3", 12.0, 15.6);
+    window.__timelines["colours"] = tl;
+  </script>
+</template>

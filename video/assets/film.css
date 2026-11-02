@@ -1,0 +1,15 @@
+/* Shared parts for every scene: the ground, type, the phone, punch-in panels and the cursor (values from SPEC.md). */
+.ground { position: absolute; inset: 0; background: #cdd0ce; }
+.title { position: absolute; font-family: Inter, sans-serif; font-weight: 700; font-size: 76px; line-height: 1.04; letter-spacing: -0.025em; color: #141414; }
+.title .w { display: inline-block; }
+.cap { position: absolute; font-family: Inter, sans-serif; font-weight: 500; font-size: 34px; line-height: 1.25; letter-spacing: -0.01em; color: #141414; }
+.mono { font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 28px; }
+.blue { color: #0a58a5; } /* text accent: darker Interfere blue so it passes 3:1 on the ground */
+.phone { position: absolute; top: 72px; width: 448px; height: 936px; padding: 14px; border-radius: 62px; background: #0a0a0a; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.28); }
+.screen { position: relative; width: 420px; height: 908px; border-radius: 48px; overflow: hidden; background: #111; }
+.screen img { position: absolute; left: 0; top: 0; width: 420px; display: block; }
+.panel { position: absolute; overflow: hidden; border-radius: 28px; background: #111; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.28); }
+.panel img { position: absolute; left: 0; top: 0; display: block; }
+.photo { position: absolute; overflow: hidden; border-radius: 28px; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.28); }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.cursor { position: absolute; left: 0; top: 0; width: 60px; height: 60px; z-index: 50; }

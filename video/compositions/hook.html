@@ -1,0 +1,25 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #hook-photo { left: 1080px; top: 90px; width: 680px; height: 900px; }
+    #root .title { left: 150px; top: 400px; width: 820px; }
+  </style>
+  <div data-hf-id="hf-ktv8" id="root" data-composition-id="hook" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ygft" class="ground"></div>
+    <div data-hf-id="hf-aa9c" id="hook-photo" class="photo"><img data-hf-id="hf-9oi0" src="assets/looks/asha.jpg" alt="Asha" /></div>
+    <div data-hf-id="hf-zixz" id="hook-l1" class="title" data-hold>Chemo starts in <span data-hf-id="hf-vius" class="blue">14</span> days.</div>
+    <div data-hf-id="hf-4knd" id="hook-l2" class="title" data-hold>Asha shaved her head early.</div>
+    <div data-hf-id="hf-e7w7" id="hook-l3" class="title" data-hold>A wig costs $200 to <span data-hf-id="hf-pqze" class="blue">$3,000.</span></div>
+    <div data-hf-id="hf-bxza" id="hook-l4" class="title" data-hold>Most are <span data-hf-id="hf-h9rw" class="blue">final sale.</span></div>
+    <div data-hf-id="hf-i3s7" id="hook-l5" class="title" data-hold>Picked in the weeks after a diagnosis.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    film.words(tl, "#hook-l1", 0.6, 4.3);
+    film.words(tl, "#hook-l2", 5.0, 8.4);
+    film.words(tl, "#hook-l3", 9.4, 12.9);
+    film.words(tl, "#hook-l4", 13.4, 15.9);
+    film.words(tl, "#hook-l5", 16.4, 19.6);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

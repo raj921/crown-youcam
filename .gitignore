@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.spec/
+!.env.example
+
+# video build outputs (the film is on YouTube)
+video/renders/
+video/.hyperframes/

@@ -1,0 +1,48 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #reveal-photo { left: 1080px; top: 90px; width: 680px; height: 900px; }
+    #reveal-phone { left: 1180px; opacity: 0; }
+    #reveal-colours { opacity: 0; }
+    #reveal-brand { left: 150px; top: 330px; font-size: 120px; display: flex; align-items: center; gap: 24px; }
+    #reveal-brand svg { width: 120px; height: 120px; }
+    #reveal-line { left: 150px; top: 500px; width: 860px; }
+    #reveal-l3 { left: 150px; top: 400px; width: 860px; }
+    #reveal-l4 { left: 150px; top: 500px; width: 820px; }
+  </style>
+  <div data-hf-id="hf-yqoq" id="root" data-composition-id="reveal" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ygft" class="ground"></div>
+    <div data-hf-id="hf-jv4m" id="reveal-phone" class="phone">
+      <div data-hf-id="hf-cdmk" class="screen">
+        <img data-hf-id="hf-9x0d" id="reveal-home" src="assets/screens/01-home.png" alt="Crown home screen" />
+        <img data-hf-id="hf-e24u" id="reveal-colours" src="assets/screens/02-colours.png" alt="Your colours screen" />
+      </div>
+    </div>
+    <div data-hf-id="hf-0l3a" id="reveal-photo" class="photo"><img data-hf-id="hf-9oi0" src="assets/looks/asha.jpg" alt="Asha" /></div>
+    <div data-hf-id="hf-8e8v" id="reveal-brand" class="title">
+      <svg data-hf-id="hf-djqk" viewBox="0 0 24 24" fill="none" stroke="#0090ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-mbod" d="M19.2 17L21 7L14.7 10L12 7L9.3 10L3 7L4.8 17H19.2Z" /></svg>
+      <span data-hf-id="hf-aete" id="reveal-name">Crown</span>
+    </div>
+    <div data-hf-id="hf-2amc" id="reveal-line" class="title" data-hold>See the wig on you before you buy.</div>
+    <div data-hf-id="hf-9v2k" id="reveal-l3" class="title" data-hold>One selfie.</div>
+    <div data-hf-id="hf-sgoy" id="reveal-l4" class="cap" data-hold>Her colours, read by YouCam skin-tone analysis.</div>
+    <svg data-hf-id="hf-b15w" id="reveal-cursor" class="cursor" viewBox="0 0 60 60"><path data-hf-id="hf-m0uf" d="M6 4 L6 48 L18 37 L26 55 L33 52 L25 34 L42 34 Z" fill="#0090ff" stroke="#fff" stroke-width="3" stroke-linejoin="round" /></svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // The portrait carries into the phone and becomes the app.
+    tl.fromTo("#reveal-photo", { x: 0, y: 0, scale: 1, transformOrigin: "0 0" }, { x: 114, y: 172, scale: 420 / 680, duration: 0.9, ease: "power2.inOut" }, 0);
+    tl.fromTo("#reveal-phone", { opacity: 0, scale: 1.03 }, { opacity: 1, scale: 1, duration: 0.5, ease: "expo.out" }, 0.4);
+    tl.fromTo("#reveal-photo", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power2.in" }, 0.85);
+    tl.fromTo("#reveal-brand", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, 1.4);
+    film.words(tl, "#reveal-line", 2.2);
+    tl.to(["#reveal-brand", "#reveal-line"], { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 6.4);
+    // Tap "Choose a photo": the selfie is read and the colours screen arrives.
+    film.tap(tl, "#reveal-cursor", film.pt(1180, 195, 697), 7.1, [1960, 1120]);
+    film.swap(tl, "#reveal-home", "#reveal-colours", 7.15);
+    tl.to("#reveal-cursor", { x: 1960, y: 1120, duration: 0.4, ease: "power3.in" }, 7.9);
+    film.words(tl, "#reveal-l3", 7.7, 13.5);
+    film.words(tl, "#reveal-l4", 8.3, 13.5);
+    window.__timelines["reveal"] = tl;
+  </script>
+</template>

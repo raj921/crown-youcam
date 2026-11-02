@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #off-phone { left: 260px; }
+    #off-turban-s, #off-list { opacity: 0; }
+    #off-photo { left: 820px; top: 140px; width: 620px; height: 800px; opacity: 0; }
+    #off-badge { left: 820px; top: 380px; width: 694px; height: 213px; opacity: 0; }
+    #off-badge img { width: 756px; left: -31px; top: -1338px; }
+    #root .title { font-size: 52px; }
+    #off-c1 { left: 1500px; top: 420px; width: 340px; }
+    #off-c2 { left: 820px; top: 640px; width: 900px; }
+    #off-c3 { left: 820px; top: 420px; width: 900px; font-size: 64px; }
+  </style>
+  <div data-hf-id="hf-b14k" id="root" data-composition-id="off" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-70ja" id="off-ground" class="ground"></div>
+    <div data-hf-id="hf-guim" id="off-phone" class="phone">
+      <div data-hf-id="hf-cdmk" class="screen">
+        <img data-hf-id="hf-b8nz" id="off-off" src="assets/screens/07-off.png" alt="Wig-off days screen" />
+        <img data-hf-id="hf-6hwr" id="off-turban-s" src="assets/screens/08-turban.png" alt="Sage turban tried on" />
+        <img data-hf-id="hf-3irt" id="off-list" src="assets/screens/09-shortlist.png" alt="Shortlist screen" />
+      </div>
+    </div>
+    <div data-hf-id="hf-pbum" id="off-photo" class="photo"><img data-hf-id="hf-4ca5" src="assets/looks/turban.jpg" alt="Asha in the sage bamboo turban" /></div>
+    <div data-hf-id="hf-ua3d" id="off-badge" class="panel"><img data-hf-id="hf-uxuy" src="assets/screens/09-shortlist.png" alt="Shortlist card with the final sale badge" /></div>
+    <div data-hf-id="hf-8fo4" id="off-c1" class="title" data-hold>For the days without a wig.</div>
+    <div data-hf-id="hf-028k" id="off-c2" class="cap" data-hold>Final sale, but <span data-hf-id="hf-8k16" class="blue">already seen on her.</span></div>
+    <div data-hf-id="hf-xzlz" id="off-c3" class="title" data-hold>Sent to her sister before she buys.</div>
+    <svg data-hf-id="hf-33wa" id="off-cursor" class="cursor" viewBox="0 0 60 60"><path data-hf-id="hf-m0uf" d="M6 4 L6 48 L18 37 L26 55 L33 52 L25 34 L42 34 Z" fill="#0090ff" stroke="#fff" stroke-width="3" stroke-linejoin="round" /></svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const PHONE = 260;
+    // Colour flood into the warmer wig-off world; the phone rises into it.
+    tl.fromTo("#off-ground", { backgroundColor: "#cdd0ce" }, { backgroundColor: "#d6cfc5", duration: 0.4, ease: "power2.inOut" }, 0);
+    tl.fromTo("#off-phone", { y: 1100 }, { y: 0, duration: 0.7, ease: "expo.out" }, 0.2);
+    // Tap the sage turban.
+    film.tap(tl, "#off-cursor", film.pt(PHONE, 287, 790), 2.5, [1960, 1120]);
+    film.swap(tl, "#off-off", "#off-turban-s", 2.55);
+    tl.fromTo("#off-photo", { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, 2.9);
+    film.words(tl, "#off-c1", 3.3, 8.4);
+    tl.to("#off-photo", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 8.4);
+    // Tap Shortlist in the navbar.
+    film.tap(tl, "#off-cursor", film.pt(PHONE, 352, 28), 9.0);
+    film.swap(tl, "#off-turban-s", "#off-list", 9.05);
+    tl.fromTo("#off-badge", { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, 10.3);
+    film.words(tl, "#off-c2", 10.8, 15.4);
+    tl.to("#off-badge", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 15.4);
+    // Tap Share.
+    film.tap(tl, "#off-cursor", film.pt(PHONE, 342, 786), 16.2);
+    film.words(tl, "#off-c3", 16.6, 23.3);
+    tl.to("#off-cursor", { x: 1960, y: 1120, duration: 0.4, ease: "power3.in" }, 17.0);
+    window.__timelines["off"] = tl;
+  </script>
+</template>

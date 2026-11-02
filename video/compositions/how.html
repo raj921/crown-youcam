@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #how-claim { left: 150px; top: 400px; width: 1300px; }
+    #how-head { left: 230px; top: 130px; width: 1400px; font-size: 60px; }
+    #how-line { position: absolute; left: 259px; top: 270px; width: 3px; height: 590px; background: #141414; transform-origin: 50% 0; }
+    .how-row { position: absolute; left: 0; width: 1920px; height: 52px; opacity: 0; }
+    .how-dot { position: absolute; left: 249px; top: 16px; width: 22px; height: 22px; border-radius: 11px; background: #141414; }
+    .how-label { position: absolute; left: 310px; top: 0; font-size: 38px; line-height: 52px; color: #141414; }
+    .how-desc { position: absolute; left: 1240px; top: 0; font-family: Inter, sans-serif; font-weight: 500; font-size: 38px; line-height: 52px; color: #3a3a3a; }
+    .how-last .how-dot { background: #0090ff; }
+    .how-last .how-label { color: #0a58a5; }
+    #how-foot { left: 230px; top: 926px; width: 1500px; font-size: 30px; color: #3a3a3a; }
+  </style>
+  <div data-hf-id="hf-fe7r" id="root" data-composition-id="how" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ygft" class="ground"></div>
+    <div data-hf-id="hf-306x" id="how-claim" class="title" data-hold>Know it suits you before you pay.</div>
+    <div data-hf-id="hf-r43g" id="how-head" class="title" data-hold>How Crown uses the YouCam API</div>
+    <div data-hf-id="hf-6k6g" id="how-line"></div>
+    <div data-hf-id="hf-1vxy" id="how-n1" class="how-row" style="top:244px">
+      <div data-hf-id="hf-66b8" class="how-dot"></div><div data-hf-id="hf-06lv" class="how-label mono">file upload</div><div data-hf-id="hf-6q1t" class="how-desc">her selfie</div>
+    </div>
+    <div data-hf-id="hf-e6t0" id="how-n2" class="how-row" style="top:362px">
+      <div data-hf-id="hf-ihsc" class="how-dot"></div><div data-hf-id="hf-kzh8" class="how-label mono">skin-tone-analysis + face-attr-analysis</div><div data-hf-id="hf-pv4t" class="how-desc">colours + style set</div>
+    </div>
+    <div data-hf-id="hf-86o2" id="how-n3" class="how-row" style="top:480px">
+      <div data-hf-id="hf-hav9" class="how-dot"></div><div data-hf-id="hf-rp7o" class="how-label mono">hair-transfer</div><div data-hf-id="hf-j4og" class="how-desc">the wig on her</div>
+    </div>
+    <div data-hf-id="hf-lqsn" id="how-n4" class="how-row" style="top:598px">
+      <div data-hf-id="hf-hp6a" class="how-dot"></div><div data-hf-id="hf-l11q" class="how-label mono">hair-color</div><div data-hf-id="hf-8kui" class="how-desc">the shade</div>
+    </div>
+    <div data-hf-id="hf-1la2" id="how-n5" class="how-row" style="top:716px">
+      <div data-hf-id="hf-jopf" class="how-dot"></div><div data-hf-id="hf-gdzd" class="how-label mono">hat</div><div data-hf-id="hf-jcfl" class="how-desc">turbans and caps</div>
+    </div>
+    <div data-hf-id="hf-lvl3" id="how-n6" class="how-row how-last" style="top:834px">
+      <div data-hf-id="hf-k30g" class="how-dot"></div><div data-hf-id="hf-hsjx" class="how-label mono">task/delete</div><div data-hf-id="hf-59we" class="how-desc">photo removed from YouCam</div>
+    </div>
+    <div data-hf-id="hf-4quw" id="how-foot" class="cap" data-hold>Asha and the product photos: YouCam text-to-image. Every try-on is a real result.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    film.words(tl, "#how-claim", 0.3, 3.9);
+    film.words(tl, "#how-head", 4.3);
+    tl.fromTo("#how-line", { scaleY: 0 }, { scaleY: 1, duration: 7.2, ease: "none" }, 4.8);
+    tl.fromTo("#how-n1", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power2.out" }, 4.80);
+    tl.fromTo("#how-n2", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power2.out" }, 6.24);
+    tl.fromTo("#how-n3", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power2.out" }, 7.68);
+    tl.fromTo("#how-n4", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power2.out" }, 9.12);
+    tl.fromTo("#how-n5", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power2.out" }, 10.56);
+    tl.fromTo("#how-n6", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power2.out" }, 12.00);
+    film.words(tl, "#how-foot", 13.2);
+    window.__timelines["how"] = tl;
+  </script>
+</template>

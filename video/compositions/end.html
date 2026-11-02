@@ -1,0 +1,34 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #end-lockup { position: absolute; left: 650px; top: 360px; width: 620px; height: 200px; }
+    #end-mark, #end-fill { position: absolute; left: 0; top: 0; width: 200px; height: 200px; }
+    #end-fill { clip-path: inset(100% 0 0 0); }
+    #end-word { position: absolute; left: 220px; top: 22px; font-family: Inter, sans-serif; font-weight: 700; font-size: 150px; letter-spacing: -0.04em; color: #141414; clip-path: inset(0 100% 0 0); }
+    #end-line { left: 0; right: 0; top: 620px; text-align: center; font-size: 40px; }
+    #end-apis { left: 0; right: 0; top: 700px; text-align: center; color: #3a3a3a; }
+  </style>
+  <div data-hf-id="hf-gwfo" id="root" data-composition-id="end" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ygft" class="ground"></div>
+    <div data-hf-id="hf-u2tv" id="end-lockup">
+      <svg data-hf-id="hf-fyin" id="end-mark" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-mbod" d="M19.2 17L21 7L14.7 10L12 7L9.3 10L3 7L4.8 17H19.2Z" /></svg>
+      <svg data-hf-id="hf-mkn1" id="end-fill" viewBox="0 0 24 24" fill="#0090ff" stroke="#0090ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-a1m9" d="M19.2 17L21 7L14.7 10L12 7L9.3 10L3 7L4.8 17H19.2Z" /></svg>
+      <div data-hf-id="hf-1znk" id="end-word">Crown</div>
+    </div>
+    <div data-hf-id="hf-f8l4" id="end-line" class="cap" data-hold>See the wig on you before you buy.</div>
+    <div data-hf-id="hf-3u87" id="end-apis" class="cap mono" data-hold>Built on 6 YouCam AI APIs</div>
+    <svg data-hf-id="hf-4tp6" id="end-cursor" class="cursor" viewBox="0 0 60 60"><path data-hf-id="hf-m0uf" d="M6 4 L6 48 L18 37 L26 55 L33 52 L25 34 L42 34 Z" fill="#0090ff" stroke="#fff" stroke-width="3" stroke-linejoin="round" /></svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#end-mark", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, 0.3);
+    // The cursor clicks the mark; blue rises through it, then the name wipes in.
+    film.tap(tl, "#end-cursor", [744, 456], 2.0, [1960, 1120]);
+    tl.fromTo("#end-fill", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.6, ease: "power2.inOut" }, 2.0);
+    tl.to("#end-cursor", { x: 1960, y: 1120, duration: 0.4, ease: "power3.in" }, 2.5);
+    tl.fromTo("#end-word", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "power3.out" }, 2.4);
+    film.words(tl, "#end-line", 3.4);
+    film.words(tl, "#end-apis", 4.2);
+    window.__timelines["end"] = tl;
+  </script>
+</template>

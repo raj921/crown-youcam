@@ -1,0 +1,71 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #wigs-phone { left: 230px; }
+    #wigs-grid, #wigs-bob, #wigs-chest { opacity: 0; }
+    #wigs-ba { left: 140px; top: 140px; width: 600px; height: 800px; opacity: 0; }
+    #wigs-after { position: absolute; inset: 0; clip-path: inset(0 0 0 100%); }
+    #wigs-chestnut { opacity: 0; }
+    #wigs-line { position: absolute; top: 0; left: 0; width: 3px; height: 800px; background: #fff; }
+    #wigs-knob { position: absolute; top: 376px; left: -22px; width: 48px; height: 48px; border-radius: 24px; background: rgba(255, 255, 255, 0.85); }
+    #root .title { font-size: 60px; }
+    #wigs-c1, #wigs-c2, #wigs-c3 { left: 800px; top: 400px; width: 400px; }
+  </style>
+  <div data-hf-id="hf-cxb5" id="root" data-composition-id="wigs" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ygft" class="ground"></div>
+    <div data-hf-id="hf-jjq7" id="wigs-phone" class="phone">
+      <div data-hf-id="hf-cdmk" class="screen">
+        <img data-hf-id="hf-y3m3" id="wigs-colours" src="assets/screens/02-colours.png" alt="Your colours screen" />
+        <img data-hf-id="hf-1fir" id="wigs-grid" src="assets/screens/03-wigs.png" alt="Wig shop grid" />
+        <img data-hf-id="hf-5flb" id="wigs-bob" src="assets/screens/04-bob.png" alt="French bob on Asha with the compare slider" />
+        <img data-hf-id="hf-yhyb" id="wigs-chest" src="assets/screens/05-bob-chestnut.png" alt="French bob in Chestnut" />
+      </div>
+    </div>
+    <div data-hf-id="hf-ox1a" id="wigs-ba" class="photo">
+      <img data-hf-id="hf-rwdm" src="assets/looks/asha.jpg" alt="Asha without a wig" />
+      <div data-hf-id="hf-b65i" id="wigs-after">
+        <img data-hf-id="hf-85op" src="assets/looks/w2-bob.jpg" alt="Asha in the French bob" />
+        <img data-hf-id="hf-2dct" id="wigs-chestnut" src="assets/looks/bob-chestnut.jpg" alt="Asha in the French bob, Chestnut" />
+      </div>
+      <div data-hf-id="hf-leku" id="wigs-line"><div data-hf-id="hf-7gvo" id="wigs-knob"></div></div>
+    </div>
+    <div data-hf-id="hf-yoid" id="wigs-c1" class="title" data-hold>Her face. The wig's shape.</div>
+    <div data-hf-id="hf-9k61" id="wigs-c2" class="title" data-hold>Then the shade that <span data-hf-id="hf-d688" class="blue">suits her.</span></div>
+    <div data-hf-id="hf-s8bw" id="wigs-c3" class="title" data-hold>Eight wigs. All on her.</div>
+    <svg data-hf-id="hf-2emz" id="wigs-cursor" class="cursor" viewBox="0 0 60 60"><path data-hf-id="hf-m0uf" d="M6 4 L6 48 L18 37 L26 55 L33 52 L25 34 L42 34 Z" fill="#0090ff" stroke="#fff" stroke-width="3" stroke-linejoin="round" /></svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const S = film.SCALE, PHONE = 1240, SCROLL = 514;
+    tl.fromTo("#wigs-phone", { x: 0 }, { x: PHONE - 230, duration: 0.6, ease: "power2.inOut" }, 0);
+    film.swap(tl, "#wigs-colours", "#wigs-grid", 0.5);
+    tl.fromTo("#wigs-grid", { y: 0 }, { y: -SCROLL * S, duration: 1.0, ease: "power2.inOut" }, 1.2);
+    // Tap the French bob; the page then scrolls up to the try-on.
+    film.tap(tl, "#wigs-cursor", film.pt(PHONE, 287, 834, SCROLL), 3.6, [1960, 1120]);
+    film.swap(tl, "#wigs-grid", "#wigs-bob", 3.65);
+    tl.fromTo("#wigs-bob", { y: -SCROLL * S }, { y: 0, duration: 0.7, ease: "power2.inOut" }, 4.1);
+    tl.to("#wigs-cursor", { x: 1960, y: 1120, duration: 0.4, ease: "power3.in" }, 4.3);
+    // The same look, large: wipe from her bare head to the wig, then drag the line.
+    tl.fromTo("#wigs-ba", { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, 4.4);
+    const wipe = (pct, at, d) => {
+      tl.to("#wigs-after", { clipPath: `inset(0 0 0 ${pct}%)`, duration: d, ease: "power2.inOut" }, at);
+      tl.to("#wigs-line", { x: (600 * pct) / 100, duration: d, ease: "power2.inOut" }, at);
+    };
+    tl.fromTo("#wigs-line", { x: 600 }, { x: 600, duration: 0.01 }, 0);
+    wipe(50, 5.0, 1.2);
+    film.words(tl, "#wigs-c1", 5.4, 9.4);
+    wipe(15, 7.0, 0.9);
+    wipe(50, 8.1, 0.8);
+    // Tap Chestnut: phone and large view recolour together.
+    film.tap(tl, "#wigs-cursor", film.pt(PHONE, 63, 788), 10.0, [1960, 1120]);
+    film.swap(tl, "#wigs-bob", "#wigs-chest", 10.05);
+    tl.fromTo("#wigs-chestnut", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.inOut" }, 10.1);
+    tl.to("#wigs-cursor", { x: 1960, y: 1120, duration: 0.4, ease: "power3.in" }, 10.6);
+    film.words(tl, "#wigs-c2", 10.6, 15.6);
+    film.words(tl, "#wigs-c3", 16.2, 20.6);
+    wipe(0, 18.6, 1.0);
+    tl.to("#wigs-line", { opacity: 0, duration: 0.2 }, 19.6);
+    tl.to("#wigs-phone", { opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 20.8);
+    window.__timelines["wigs"] = tl;
+  </script>
+</template>
